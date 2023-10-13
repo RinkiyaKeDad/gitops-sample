@@ -56,3 +56,5 @@ Now we are at the stage when if you change the tag in `chart/values.yaml` and co
 1. Next step is to automate things and for that we will use GitHub Actions. Create a DockerHub token and the following repo secrets in GitHub:
 - DOCKERHUB_USERNAME
 - DOCKERHUB_TOKEN
+
+1. In the repo settings -> Actions -> General -> Workflow permissions -> Give it read and write permissions so that our action can commit changes to the repo.

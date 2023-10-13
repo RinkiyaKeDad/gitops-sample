@@ -31,3 +31,20 @@ Add a DNS entry of A type for your domain to point to this IP.
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
+
+To access the Argo CD UI:
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+Login to localhost:8080 with username `admin` and password you get via running:
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+Or if you have `argocd` CLI installed, you can run:
+```bash
+argocd admin initial-password -n argocd
+```
+
+1. Click New App from the Argo CD UI and click edit as YAML and copy paste the config in `/apps/go-server-prod.yaml` and click create.

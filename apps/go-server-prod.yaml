@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: 'in-cluster'
-    namespace: 'default'
+    namespace: 'prod'
   source:
     path: 'chart'
     repoURL: 'https://github.com/RinkiyaKeDad/gitops-sample'

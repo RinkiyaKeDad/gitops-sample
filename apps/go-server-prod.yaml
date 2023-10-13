@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'go-server'
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: 'default'
+  source:
+    path: 'chart'
+    repoURL: 'https://github.com/RinkiyaKeDad/gitops-sample'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+      - values.yaml
+  project: 'default'
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

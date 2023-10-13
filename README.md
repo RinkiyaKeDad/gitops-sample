@@ -51,4 +51,8 @@ argocd admin initial-password -n argocd
 
 Now we are at the stage when if you change the tag in `chart/values.yaml` and commit and push, Argo CD will detect that its out of sync and you can click sync from the UI to sync it.
 
-Next step is to automate things and for that we will use GitHub Actions.
+
+
+1. Next step is to automate things and for that we will use GitHub Actions. Create a DockerHub token and the following repo secrets in GitHub:
+- DOCKERHUB_USERNAME
+- DOCKERHUB_TOKEN

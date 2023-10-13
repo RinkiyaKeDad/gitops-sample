@@ -2,7 +2,7 @@
 
 This is a sample project to demonstrate GitOps with ArgoCD.
 
-## Prerequisites
+## Instructions
 
 1. Create a K8s cluster
 
@@ -23,7 +23,7 @@ This is a sample project to demonstrate GitOps with ArgoCD.
     ingress-nginx-controller             LoadBalancer   10.43.172.201   **74.220.19.189**   80:31297/TCP,443:32408/TCP   3m12s
     ```
 
-    Add a DNS entry of A type for your domain to point to this IP.
+    Add a DNS entry of A type for your domain (in this case: gitops.arshsharma.com) to point to this IP.
 
 1. Install ArgoCD
 
@@ -46,6 +46,7 @@ This is a sample project to demonstrate GitOps with ArgoCD.
     ```bash
     argocd admin initial-password -n argocd
     ```
+    This is supposed to be a one time use password and it is [recommended](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli) you change this.
 
 1. Click New App from the Argo CD UI and click edit as YAML and copy paste the config in `/apps/go-server-prod.yaml` and click create. And then click sync.
 
@@ -58,3 +59,10 @@ This is a sample project to demonstrate GitOps with ArgoCD.
     - DOCKERHUB_TOKEN
 
 1. In the repo settings -> Actions -> General -> Workflow permissions -> Give it read and write permissions so that our action can commit changes to the repo.
+
+Since this is a mono repo example we would have to do:
+```bash
+git fetch origin   
+git rebase origin/main
+```
+It is [ideal](https://argo-cd.readthedocs.io/en/stable/user-guide/best_practices/) to separate the application code and application config in different repos.

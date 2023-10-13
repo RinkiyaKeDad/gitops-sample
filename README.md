@@ -47,4 +47,4 @@ Or if you have `argocd` CLI installed, you can run:
 argocd admin initial-password -n argocd
 ```
 
-1. Click New App from the Argo CD UI and click edit as YAML and copy paste the config in `/apps/go-server-prod.yaml` and click create.
+1. Click New App from the Argo CD UI and click edit as YAML and copy paste the config in `/apps/go-server-prod.yaml` and click create. And then click sync.

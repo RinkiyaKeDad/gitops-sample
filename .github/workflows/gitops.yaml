@@ -33,4 +33,4 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{ github.repository_owner }}/go-server:${{ github.sha }}
+        tags: rinkiyakedad/go-server:${{ github.sha }}
